@@ -38,7 +38,7 @@ app.get( "/clothes", ( req, res ) => {
     });
 });
 
-const read_clothes_all_sql = `
+const read_clothes_item_sql = `
     SELECT
         id, item, description
     FROM
