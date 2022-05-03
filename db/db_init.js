@@ -24,8 +24,8 @@ const insert_clothes_table_sql = `
     VALUES
         (?, ?, ?)`
 
-db.execute(insert_stuff_table_sql, ["Pink pants", 2, "bleh"]);
+db.execute(insert_clothes_table_sql, ["Pink pants", 2, "bleh"]);
 
-db.execute(insert_stuff_table_sql, ["While shirt", 2, null]);
+db.execute(insert_clothes_table_sql, ["While shirt", 2, null]);
 
 db.end();
