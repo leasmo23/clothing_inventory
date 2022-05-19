@@ -9,8 +9,8 @@ db.execute(drop_clothes_table_sql);
 const create_clothes_table_sql = `
 CREATE TABLE clothes(
     item   VARCHAR(45) NOT NULL,
-    quantity INT NOT NULL,
-    description VARCHAR(150) NULL,
+    brand VARCHAR(45) NULL,
+    location VARCHAR(45) NOT NULL,
     id INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (id));
 `
@@ -20,12 +20,32 @@ db.execute(create_clothes_table_sql);
 // add some sample data to the table
 const insert_clothes_table_sql = `
     INSERT INTO clothes
-        (item, quantity, description)
+        (item, brand, location)
     VALUES
         (?, ?, ?)`
 
-db.execute(insert_clothes_table_sql, ["Pink pants", 2, "bleh"]);
+db.execute(insert_clothes_table_sql, ["Pink pants", "PacSun", "Left Closet"]);
 
-db.execute(insert_clothes_table_sql, ["While shirt", 2, null]);
+db.execute(insert_clothes_table_sql, ["While shirt", "Brandy", "Left Column"]);
+
+db.execute(insert_clothes_table_sql, ["Wide Leg Jeans", "Levi's" , "Upper Rack"]);
+
+db.execute(insert_clothes_table_sql, ["Navy Sweatpants", "BCA Merch", "Right Column"]);
+
+db.execute(insert_clothes_table_sql, ["Pink shirt", null , "Left Column"]);
+
+/**** Read the sample items inserted ****/
+
+const read_clothes_table_sql = "SELECT * FROM clothes";
+
+db.execute(read_clothes_table_sql, 
+    (error, results) => {
+        if (error) 
+            throw error;
+
+        console.log("Table 'clothes' initialized with:")
+        console.log(results);
+    }
+);
 
 db.end();
