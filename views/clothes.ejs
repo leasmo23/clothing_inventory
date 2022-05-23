@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+         
     <!-- Actual page content! -->
     <div class="container">
         <div class="section" id="clothingList">
@@ -34,32 +34,22 @@
 
                 </thead>
                 <tbody>
-
+                  <% for(let i = 0; i < inventory.length; i++) { %>
+   
                     <tr>
-                        <td>Pink Pants</td>
-                        <td>PacSun</td>
-                        <td>Closet Shelf</td>
+                        <td><%= inventory[i].item %></td>
+                        <td><%= inventory[i].brand %></td>
+                        <td><%= inventory[i].location %></td>
             
                         <td>
-                            <a class="btn-small waves-effect waves-light" href="/clothes/item"><i
+                            <a class="btn-small waves-effect waves-light" href="/clothes/item/<%= inventory[i].id %>"><i
                                     class="material-icons right">edit</i>Info/Edit</a>
-                            <a class="btn-small waves-effect waves-light red"><i
+                            <a class="btn-small waves-effect waves-light red" href="/clothes/item/<%= inventory[i].id %>/delete"><i
                                     class="material-icons right">delete</i>Delete</a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>ABF Sweatshirt</td>
-                        <td>BCA</td>
-                        <td>Drawer</td>
-                       
-                        <td>
-                            <a class="btn-small waves-effect waves-light" href="/clothes/item"><i
-                                    class="material-icons right">edit</i>Info/Edit</a>
-                            <a class="btn-small waves-effect waves-light red"><i
-                                    class="material-icons right">delete</i>Delete</a>
-                        </td>
-                    </tr>
+                    <% } %>
+                    
 
                 </tbody>
             </table>
@@ -67,7 +57,7 @@
 
         <div class="section" id="clothesAdd">
             <h2>Add an item:</h2>
-            <form>
+            <form method = "post" >
                 <div class="row">
                     <div class="input-field col s6">
                         <label for="name">Item Name:</label>

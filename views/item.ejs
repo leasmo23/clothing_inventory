@@ -23,7 +23,7 @@
             <table>
                 <tr>
                     <th>Item:</th>
-                    <td><%= item%></td>
+                    <td><%= item %></td>
                 </tr>
                 <tr>
                     <th>Brand:</th>
@@ -36,12 +36,6 @@
 
                 </tr>
                 
-                <tr>
-                    <th><%= description%>></th>
-                    <td>
-                        Jeans material but no rips, highwaisted.
-                    </td>
-                </tr>
             </table>
         </div>
 
@@ -49,7 +43,7 @@
             <a class="btn-large waves-effect waves-light orange left modal-trigger" href="#itemEdit">
                 <i class="material-icons right">edit</i>Edit
             </a>
-            <a class="btn-large waves-effect waves-light red right">
+            <a class="btn-large waves-effect waves-light red right" href="/clothes/item/<%= id %>/delete">
                 <i class="material-icons right">delete</i>Delete
             </a>
         </div>
@@ -60,7 +54,7 @@
             <div class="modal-content">
 
                 <h2>Edit item:</h2>
-                <form>
+                <form method = "post">
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="name">Item Name:</label>
@@ -76,12 +70,7 @@
                         </div>
                         
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <label for="description">Item Description:</label>
-                            <input type="text" name="description" data-length="100">
-                        </div>
-                    </div>
+                    
                     <div class="modal-footer">
                         <button class="btn waves-effect waves-light " type="submit"><i
                                 class="material-icons right">send</i>Submit</button>
