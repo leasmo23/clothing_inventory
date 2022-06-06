@@ -9,7 +9,7 @@ app.set( "views",  __dirname + "/views");
 app.set( "view engine", "ejs" );
 
 
-const db = require('./db/db_connection');
+const db = require('./db/db_pool');
 // configure express to partse URL - encoded POSt request bodies(traditional forms)
 
 app.use(express.urlencoded({extended : false}));
