@@ -4,7 +4,7 @@ const logger = require("morgan" );
 const app = express();
 
 const dotenv = require('dotenv');
-dotenv.confit();
+dotenv.config();
 const port = process.env.PORT;
 
 // Configure Express to use EJS
